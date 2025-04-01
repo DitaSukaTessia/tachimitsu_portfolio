@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio With Tailwind CSS</title>
     <link href="src/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body class="bg-gray-950 text-white">
     <!-- Header  Start -->
@@ -139,11 +140,18 @@
     <section id="about" class="pt-36 pb-32">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10 lg:w-1/2">
+          <div
+            class="w-full px-4 mb-10 lg:w-1/2"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="200">
             <h4 class="font-bold uppercase text-primary text-lg mb-3">
               About Us
             </h4>
-            <h2 class="font-bold text-white text-3xl mb-5 max-w-md lg:text-4xl">
+            <h2
+              class="font-bold text-white text-3xl mb-5 max-w-md lg:text-4xl"
+              data-aos="fade-right"
+              data-aos-delay="200">
               Let's join our team, to build a great future
             </h2>
             <p class="font-medium text-base text-slate-400 max-w-xl lg:text-lg">
@@ -153,9 +161,15 @@
               learning, we can create digital solutions that make a real impact.
             </p>
           </div>
-          <div class="w-full px-4 lg:w-1/2">
+          <div
+            class="w-full px-4 lg:w-1/2"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="400">
             <h3
-              class="font-semibold text-white text-2xl mb-4 lg:text-3xl lg:pt-10">
+              class="font-semibold text-white text-2xl mb-4 lg:text-3xl lg:pt-10"
+              data-aos="fade-left"
+              data-aos-delay="200">
               Find me here!
             </h3>
             <p class="font-medium text-base text-slate-400 mb-6 lg:text-lg">
@@ -163,12 +177,17 @@
               awesome together? Connect with us through the platforms below and
               let's make the future happen!
             </p>
-            <div class="flex items-center">
+            <div
+              class="flex items-center"
+              data-aos="fade-left"
+              data-aos-delay="200">
               <!-- Instagram -->
               <a
                 href="https://www.instagram.com/dt_arrsyd08/"
                 target="blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-400 ease in out"
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-500 ease-in-out"
+                data-aos="fade-left"
+                data-aos-delay="300"
                 ><svg
                   role="img"
                   class="fill-current"
@@ -184,7 +203,9 @@
               <a
                 href="https://wa.link/r73sj3"
                 target="blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-400 ease in out"
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-500 ease-in-out"
+                data-aos="fade-left"
+                data-aos-delay="400"
                 ><svg
                   role="img"
                   viewBox="0 0 24 24"
@@ -201,7 +222,9 @@
               <a
                 href="atashitachi434@gmail.com"
                 target="blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-400 ease in out">
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-500 ease-in-out"
+                data-aos="fade-left"
+                data-aos-delay="500">
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
@@ -217,7 +240,9 @@
               <a
                 href="https://github.com/DitaSukaTessia"
                 target="blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-400 ease in out">
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-500 ease-in-out"
+                data-aos="fade-left"
+                data-aos-delay="600">
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
@@ -233,7 +258,9 @@
               <a
                 href="https://github.com/DitaSukaTessia"
                 target="blank"
-                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-400 ease in out">
+                class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-500 ease-in-out"
+                data-aos="fade-left"
+                data-aos-delay="700">
                 <svg
                   role="img"
                   viewBox="0 0 24 24"
@@ -747,5 +774,9 @@
     <!-- Toggle end -->
 
     <script src="src/js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
