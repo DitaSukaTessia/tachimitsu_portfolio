@@ -65,7 +65,7 @@ export default function Portfolio() {
           precision, and intelligence to redefine the digital frontier.
         </SectionHeading>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:auto-rows-[18rem]">
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <motion.article
               key={project.title}
@@ -77,8 +77,10 @@ export default function Portfolio() {
                 delay: (i % 3) * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`group relative h-[22rem] overflow-hidden rounded-2xl border border-white/10 bg-surface transition-all duration-500 hover:border-primary/50 sm:h-72 lg:h-auto ${
-                project.featured ? "sm:col-span-2 lg:row-span-2" : ""
+              className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-surface transition-all duration-500 hover:border-primary/50 ${
+                project.featured
+                  ? "h-80 sm:col-span-2 sm:h-72 lg:row-span-2 lg:h-auto"
+                  : "h-80 sm:h-72 lg:h-80"
               }`}
             >
               {/* Image */}

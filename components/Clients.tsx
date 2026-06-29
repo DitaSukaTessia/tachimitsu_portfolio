@@ -34,15 +34,13 @@ export default function Clients() {
                 rel="noopener noreferrer"
                 aria-label={client.name}
                 className="flex shrink-0 items-center opacity-55 transition-all duration-500 hover:scale-110 hover:opacity-100 [filter:brightness(0)_invert(0.9)]"
-                style={{ width: `${client.width}px` }}
               >
                 <Image
                   src={client.src}
                   alt={client.name}
                   width={client.width}
-                  height={56}
-                  className="w-full"
-                  style={{ height: "auto" }}
+                  height={40}
+                  style={{ height: "2.25rem", width: "auto" }}
                 />
               </a>
             ))}
