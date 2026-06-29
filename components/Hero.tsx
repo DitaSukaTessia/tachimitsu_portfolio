@@ -112,7 +112,7 @@ export default function Hero() {
             {/* Stats */}
             <motion.div
               variants={item}
-              className="mt-12 flex items-center justify-center gap-8 lg:justify-start"
+              className="mt-12 flex items-center justify-center gap-6 sm:gap-10 lg:justify-start"
             >
               {stats.map((s) => (
                 <div key={s.label} className="text-center lg:text-left">
@@ -155,6 +155,7 @@ export default function Hero() {
                   width={500}
                   height={600}
                   className="relative z-10 w-full drop-shadow-2xl"
+                  style={{ height: "auto" }}
                   preload
                 />
               </motion.div>

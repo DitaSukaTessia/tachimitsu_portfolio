@@ -1,6 +1,6 @@
 const footerLinks = [
   { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Clients", href: "#clients" },
   { label: "Contact", href: "#contact" },
@@ -61,38 +61,31 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#25262f] pt-24 pb-12">
-      <div className="container mx-auto max-w-[1320px]">
-        <div className="flex flex-wrap px-4">
-          <div className="w-full px-4 mb-12 text-slate-500 font-medium md:w-1/3">
-            <h2 className="font-bold text-white text-4xl mb-5">TachiMitsu</h2>
-            <h3 className="font-bold text-2xl mb-2">Contact Us</h3>
-            <a href="mailto:atashitachi434@gmail.com" className="hover:text-primary transition duration-300 block mb-1 break-all">
-              atashitachi434@gmail.com
-            </a>
-            <p>Jl. Delima No. 025</p>
-            <p>Boyolali - Jawa Tengah</p>
+    <footer className="relative border-t border-white/5 bg-surface py-16">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="font-display text-2xl font-bold text-gradient">
+              TachiMitsu
+            </h3>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-400">
+              An AI development studio exploring the frontier of code, networks,
+              and intelligence.
+            </p>
           </div>
 
-          <div className="w-full px-4 mb-12 md:w-1/3">
-            <h3 className="font-semibold text-xl text-white mb-5">Technologies</h3>
-            <ul className="text-slate-500">
-              {["AI & Machine Learning", "Software Development", "Networking & Linux", "Web Technologies"].map((item) => (
-                <li key={item}>
-                  <span className="inline-block text-base mb-3">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="w-full px-4 mb-12 md:w-1/3">
-            <h3 className="font-semibold text-xl text-white mb-5">Links</h3>
-            <ul className="text-slate-500">
+          {/* Quick Links */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-500">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="inline-block text-base hover:text-primary mb-3 transition duration-300"
+                    className="text-sm text-slate-400 transition hover:text-primary"
                   >
                     {link.label}
                   </a>
@@ -100,30 +93,66 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-500">
+              Contact
+            </h4>
+            <ul className="space-y-2.5 text-sm text-slate-400">
+              <li>
+                <a
+                  href="mailto:atashitachi434@gmail.com"
+                  className="hover:text-primary transition break-all"
+                >
+                  atashitachi434@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.link/r73sj3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition"
+                >
+                  WhatsApp
+                </a>
+              </li>
+              <li className="text-slate-500">Boyolali, Jawa Tengah</li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-500">
+              Follow Us
+            </h4>
+            <div className="flex flex-wrap gap-2.5">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href === "#" ? undefined : "_blank"}
+                  rel={link.href === "#" ? undefined : "noopener noreferrer"}
+                  aria-label={link.label}
+                  className="social-btn"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="w-full px-4 pt-10 border-t border-slate-700">
-          <div className="flex items-center justify-center mb-5 flex-wrap gap-3">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href === "#" ? undefined : "_blank"}
-                rel={link.href === "#" ? undefined : "noopener noreferrer"}
-                aria-label={link.label}
-                className="w-10 h-10 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-300 ease-in-out"
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-          <p className="font-medium text-xs text-slate-500 text-center">
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-white/5 pt-7 text-center text-xs text-slate-500">
+          <p>
             Created with ❤️ by{" "}
             <a
               href="https://www.instagram.com/dt_arrsyd08/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-primary"
+              className="font-semibold text-primary transition hover:text-primary-bright"
             >
               TachiMitsu
             </a>
@@ -132,7 +161,7 @@ export default function Footer() {
               href="https://nextjs.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-sky-500"
+              className="font-semibold text-sky-500 transition hover:text-sky-400"
             >
               Next.js
             </a>{" "}
@@ -141,11 +170,11 @@ export default function Footer() {
               href="https://tailwindcss.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-sky-400"
+              className="font-semibold text-sky-400 transition hover:text-sky-300"
             >
               Tailwind CSS
             </a>
-            .
+            . © {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
       </div>

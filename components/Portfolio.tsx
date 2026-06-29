@@ -77,10 +77,8 @@ export default function Portfolio() {
                 delay: (i % 3) * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-surface transition-all duration-500 hover:border-primary/50 ${
-                project.featured
-                  ? "sm:col-span-2 lg:row-span-2"
-                  : ""
+              className={`group relative h-[22rem] overflow-hidden rounded-2xl border border-white/10 bg-surface transition-all duration-500 hover:border-primary/50 sm:h-72 lg:h-auto ${
+                project.featured ? "sm:col-span-2 lg:row-span-2" : ""
               }`}
             >
               {/* Image */}

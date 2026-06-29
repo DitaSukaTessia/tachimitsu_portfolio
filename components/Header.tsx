@@ -67,8 +67,8 @@ export default function Header() {
               alt="TachiMitsu Logo"
               width={80}
               height={32}
-              className="h-8 transition-[filter,transform] duration-300 group-hover:scale-105 group-hover:[filter:drop-shadow(0_0_14px_color-mix(in_oklch,var(--color-primary)_70%,transparent))]"
-              style={{ width: "auto" }}
+              className="transition-[filter,transform] duration-300 group-hover:scale-105 group-hover:[filter:drop-shadow(0_0_14px_color-mix(in_oklch,var(--color-primary)_70%,transparent))]"
+              style={{ width: "auto", height: "2rem" }}
               loading="eager"
             />
           </a>
