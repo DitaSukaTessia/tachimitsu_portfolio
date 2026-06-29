@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import AmbientBackground from "@/components/AmbientBackground";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -11,7 +12,8 @@ import ParticlesClient from "@/components/ParticlesClient";
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative overflow-x-hidden">
+      <AmbientBackground />
       <Suspense fallback={null}>
         <ParticlesClient />
       </Suspense>

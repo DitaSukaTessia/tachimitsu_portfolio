@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 
 const techStack = [
   "JavaScript",
@@ -10,6 +10,33 @@ const techStack = [
   "CSS",
   "Networking",
   "Linux",
+];
+
+const focusAreas = [
+  {
+    title: "Artificial Intelligence",
+    desc: "Building and experimenting with models that learn and adapt.",
+    icon: (
+      <path d="M12 2a5 5 0 0 0-5 5v1a4 4 0 0 0 0 8v1a5 5 0 0 0 10 0v-1a4 4 0 0 0 0-8V7a5 5 0 0 0-5-5Z" />
+    ),
+  },
+  {
+    title: "Networking",
+    desc: "Designing and securing the systems that connect everything.",
+    icon: (
+      <>
+        <circle cx="12" cy="5" r="2" />
+        <circle cx="5" cy="19" r="2" />
+        <circle cx="19" cy="19" r="2" />
+        <path d="M12 7v4M12 11l-7 6M12 11l7 6" />
+      </>
+    ),
+  },
+  {
+    title: "Software Development",
+    desc: "Turning ideas into clean, functional, and scalable code.",
+    icon: <path d="m8 6-6 6 6 6M16 6l6 6-6 6" />,
+  },
 ];
 
 const socialLinks = [
@@ -66,89 +93,120 @@ const socialLinks = [
 ];
 
 export default function About() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" className="pt-36 pb-32" ref={ref}>
-      <div className="container mx-auto max-w-[1320px] px-4 lg:px-8">
-        <div className="flex flex-wrap">
-          <motion.div
-            className="w-full px-4 mt-2 mb-10 lg:w-1/2 lg:px-8"
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h4 className="font-bold text-primary text-2xl mb-3">/ about me</h4>
-            <h2 className="font-bold text-white text-2xl mb-5 max-w-md lg:text-3xl">
-              Exploring the world of tech, code, and innovation.
+    <section id="about" className="relative scroll-mt-24 py-28 lg:py-36">
+      <div className="mx-auto max-w-[1320px] px-6 lg:px-12">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left — narrative */}
+          <Reveal>
+            <span className="eyebrow">
+              <span className="h-px w-6 bg-primary/60" />
+              About Me
+            </span>
+            <h2 className="mt-4 max-w-md text-3xl font-bold leading-[1.15] text-white lg:text-4xl">
+              Exploring the world of{" "}
+              <span className="text-gradient">tech, code &amp; innovation</span>.
             </h2>
-            <p className="font-medium text-base text-slate-400 max-w-xl lg:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-400 lg:text-lg">
               I&apos;m currently a student majoring in{" "}
-              <span className="text-primary font-semibold">
+              <span className="font-semibold text-primary">
                 Computer and Network Engineering (TKJ)
               </span>
               . Passionate about{" "}
-              <span className="text-primary font-semibold">
+              <span className="font-semibold text-primary">
                 technology, networking,
               </span>{" "}
               and{" "}
-              <span className="text-primary font-semibold">
+              <span className="font-semibold text-primary">
                 software development
               </span>
-              . I also take part in school projects that help me grow both
-              technically and personally.
+              . I take part in projects that help me grow both technically and
+              personally.
             </p>
 
-            <p className="font-medium text-base text-slate-400 max-w-xl lg:text-lg mt-5">
-              Here are some technologies I&apos;ve been working with:
+            <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-slate-500">
+              Technologies I work with
             </p>
-
-            <ul className="grid grid-cols-2 gap-x-10 gap-y-2 mt-3 text-slate-300 font-medium list-none">
+            <motion.ul
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={{ show: { transition: { staggerChildren: 0.05 } } }}
+              className="mt-4 flex flex-wrap gap-2.5"
+            >
               {techStack.map((tech) => (
-                <li key={tech} className="flex items-center">
-                  <span className="text-primary mr-2">▸</span>
-                  {tech}
-                </li>
-              ))}
-            </ul>
-
-            <p className="font-medium text-base text-slate-400 max-w-xl lg:text-lg mt-6">
-              Outside of school, I love exploring world tech news, world
-              economy, and digital industry.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="w-full px-4 mt-2 lg:w-1/2"
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-          >
-            <h3 className="font-semibold text-white text-2xl mb-4 lg:text-3xl lg:pt-10">
-              Find me here!
-            </h3>
-            <p className="font-medium text-base text-slate-400 mb-6 lg:text-lg">
-              Want to collaborate, discuss the latest trends, or build something
-              awesome together? Connect with us through the platforms below and
-              let&apos;s make the future happen!
-            </p>
-
-            <div className="flex items-center flex-wrap gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href === "#" ? undefined : "_blank"}
-                  rel={link.href === "#" ? undefined : "noopener noreferrer"}
-                  aria-label={link.label}
-                  className="w-10 h-10 rounded-full flex justify-center items-center border border-slate-400 text-slate-500 hover:border-primary hover:bg-primary hover:text-white transition duration-300 ease-in-out"
+                <motion.li
+                  key={tech}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                  className="chip"
                 >
-                  {link.icon}
-                </a>
+                  <span className="text-primary">▸</span>
+                  {tech}
+                </motion.li>
               ))}
+            </motion.ul>
+
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-slate-400">
+              Outside of school, I love exploring world tech news, the global
+              economy, and the digital industry.
+            </p>
+          </Reveal>
+
+          {/* Right — focus + connect */}
+          <Reveal delay={0.12} className="flex flex-col gap-5">
+            {focusAreas.map((area) => (
+              <div
+                key={area.title}
+                className="group glass flex items-start gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20 transition group-hover:bg-primary group-hover:text-[#14100a]">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {area.icon}
+                  </svg>
+                </span>
+                <div>
+                  <h3 className="font-semibold text-white">{area.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-400">
+                    {area.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+            <div className="glass mt-1 rounded-2xl p-6">
+              <h3 className="text-lg font-semibold text-white">Find me here</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
+                Want to collaborate or just say hello? Let&apos;s connect.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.href === "#" ? undefined : "_blank"}
+                    rel={link.href === "#" ? undefined : "noopener noreferrer"}
+                    aria-label={link.label}
+                    className="social-btn"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

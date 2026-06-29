@@ -2,75 +2,210 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import MagneticButton from "@/components/MagneticButton";
+
+const stats = [
+  { value: "6+", label: "Projects" },
+  { value: "6", label: "Technologies" },
+  { value: "∞", label: "Ideas" },
+];
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.09, delayChildren: 0.1 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-36 pb-16 min-h-screen flex items-center overflow-hidden">
-      <div className="w-full max-w-[1320px] mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-wrap items-center">
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center overflow-hidden pb-20 pt-32 lg:pt-36"
+    >
+      <div className="mx-auto w-full max-w-[1320px] px-6 sm:px-8 lg:px-12">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* Text column */}
           <motion.div
-            className="w-full self-center lg:w-1/2"
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="order-2 text-center lg:order-1 lg:text-left"
           >
-            <h1 className="text-sm font-semibold text-slate-50 sm:text-base md:text-xl">
-              Hi Everyone, I am
-              <span className="block font-bold text-primary text-3xl mb-1 sm:text-4xl lg:text-5xl">
+            <motion.span
+              variants={item}
+              className="eyebrow mx-auto lg:mx-0"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              AI Development Studio
+            </motion.span>
+
+            <motion.h1
+              variants={item}
+              className="mt-6 text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+            >
+              <span className="block text-base font-medium tracking-wide text-slate-400 sm:text-lg">
+                Hi everyone, I am
+              </span>
+              <span className="text-gradient-animated mt-2 block">
                 Tachi_Mitsu
               </span>
-            </h1>
-            <h2 className="font-medium text-slate-500 text-lg mb-5 lg:text-xl">
-              AI Specialist |{" "}
-              <span className="text-slate-50">Tech Enthusiast</span>
-            </h2>
-            <p className="font-medium text-slate-400 mb-10 leading-relaxed max-w-md">
-              tachimitsu is an AI development studio affiliated with Open-AI and
-              Google.{" "}
-              <span className="text-slate-100">In Future</span>
-            </p>
-            <a
-              href="#contact"
-              className="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:opacity-80 hover:shadow-lg transition duration-300 ease-in-out"
-            >
-              Contact Us
-            </a>
-          </motion.div>
+            </motion.h1>
 
-          <motion.div
-            className="w-full self-end mx-auto mt-10 lg:mt-0 lg:w-1/2 flex justify-center lg:justify-end"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-          >
-            <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:w-[400px]">
-              <Image
-                src="/img/tachibana.png"
-                alt="TachiMitsu hero"
-                width={500}
-                height={600}
-                className="w-full transition-transform duration-500 hover:scale-105 z-10 relative"
-                priority
-              />
-              <span className="absolute w-full inset-0 flex items-center translate-y-16 justify-center z-[-1] sm:translate-y-24 lg:translate-y-16">
+            <motion.p
+              variants={item}
+              className="mt-5 text-lg font-medium text-slate-300 lg:text-xl"
+            >
+              AI Specialist
+              <span className="mx-2 text-primary">/</span>
+              Tech Enthusiast
+            </motion.p>
+
+            <motion.p
+              variants={item}
+              className="mx-auto mt-6 max-w-md text-base leading-relaxed text-slate-400 lg:mx-0"
+            >
+              An AI development studio exploring the frontier of code, networks,
+              and intelligence — affiliated with{" "}
+              <span className="text-slate-200">OpenAI</span> and{" "}
+              <span className="text-slate-200">Google</span>.{" "}
+              <span className="text-primary">In the future.</span>
+            </motion.p>
+
+            <motion.div
+              variants={item}
+              className="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+            >
+              <MagneticButton href="#contact" className="btn-primary">
+                Contact Us
                 <svg
-                  width="360"
-                  height="360"
-                  viewBox="0 0 200 200"
-                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <path
-                    fill="oklch(0.75 0.183 55.934)"
-                    d="M55.6,-47.4C68.4,-28.4,72.5,-5.5,68,16.1C63.5,37.6,50.5,57.7,32.6,65.5C14.7,73.2,-8.1,68.6,-30.1,59.3C-52.2,49.9,-73.6,35.8,-76.7,18.5C-79.9,1.2,-64.8,-19.3,-49,-39C-33.2,-58.7,-16.6,-77.7,2.4,-79.6C21.4,-81.6,42.9,-66.4,55.6,-47.4Z"
-                    transform="translate(100 100) scale(1.3)"
-                  />
+                  <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
-              </span>
+              </MagneticButton>
+              <MagneticButton href="#portfolio" className="btn-ghost">
+                View Work
+              </MagneticButton>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              variants={item}
+              className="mt-12 flex items-center justify-center gap-8 lg:justify-start"
+            >
+              {stats.map((s) => (
+                <div key={s.label} className="text-center lg:text-left">
+                  <div className="font-display text-3xl font-bold text-white">
+                    {s.value}
+                  </div>
+                  <div className="mt-1 text-xs uppercase tracking-widest text-slate-500">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Image column */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="order-1 flex justify-center lg:order-2 lg:justify-end"
+          >
+            <div className="relative w-full max-w-[360px] sm:max-w-[420px]">
+              {/* Rotating conic ring */}
+              <div className="absolute inset-0 -z-10 animate-spin-slow rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,color-mix(in_oklch,var(--color-primary)_55%,transparent)_90deg,transparent_180deg,color-mix(in_oklch,var(--color-accent)_45%,transparent)_300deg,transparent_360deg)] opacity-50 blur-2xl" />
+              {/* Soft glow */}
+              <div className="absolute left-1/2 top-1/2 -z-10 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,color-mix(in_oklch,var(--color-primary)_35%,transparent)_0%,transparent_65%)] blur-2xl" />
+
+              <motion.div
+                animate={{ y: [0, -14, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                <Image
+                  src="/img/tachibana.png"
+                  alt="TachiMitsu"
+                  width={500}
+                  height={600}
+                  className="relative z-10 w-full drop-shadow-2xl"
+                  preload
+                />
+              </motion.div>
+
+              {/* Floating chips */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="glass absolute left-0 top-10 z-20 rounded-2xl px-4 py-2.5 text-sm font-medium text-white shadow-lg"
+              >
+                <span className="text-primary">⚡</span> AI / ML
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{
+                  duration: 5.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="glass absolute bottom-16 right-0 z-20 flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-medium text-white shadow-lg"
+              >
+                <span className="h-2 w-2 rounded-full bg-green-400 shadow-[0_0_8px] shadow-green-400" />
+                Online
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.a
+        href="#about"
+        aria-label="Scroll to about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.1, duration: 0.6 }}
+        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-slate-500 transition hover:text-primary md:flex"
+      >
+        <span className="text-[0.7rem] uppercase tracking-[0.25em]">Scroll</span>
+        <span className="flex h-9 w-5 justify-center rounded-full border border-slate-600 p-1">
+          <motion.span
+            animate={{ y: [0, 10, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            className="h-1.5 w-1 rounded-full bg-primary"
+          />
+        </span>
+      </motion.a>
     </section>
   );
 }
